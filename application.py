@@ -5,7 +5,8 @@ import numpy as np
 import pandas as pd
 from sklearn.preprocessing import StandardScaler
 
-app = Flask(__name__)
+application = Flask(__name__)
+app = application
 
 ridge_model = pickle.load(open('models/rd.pkl', 'rb'))
 standard_scaler_model = pickle.load(open('models/sc.pkl', 'rb'))
@@ -35,4 +36,4 @@ def predict():
         return render_template('home.html')
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    app.run(host='0.0.0.0')
